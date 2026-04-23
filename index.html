@@ -1,26 +1,48 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Calculadora del Amor ❤️</title>
-    <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Calculadora del Amor ❤️</title>
+<link rel="stylesheet" href="style.css">
 </head>
+
 <body>
 
-    <div class="container">
-        <h1>💖 Calculadora del Amor 💖</h1>
+<div class="container">
+    <h1>💖 Calculadora del Amor 💖</h1>
 
-        <div class="inputs">
-            <input type="text" placeholder="Nombre 1" id="nombre1">
-            <input type="text" placeholder="Nombre 2" id="nombre2">
-        </div>
-
-        <button onclick="calculadora()">Calcular ❤️</button>
-
-        <div id="result"></div>
+    <div class="inputs">
+        <input type="text" placeholder="Nombre 1" id="nombre1">
+        <input type="text" placeholder="Nombre 2" id="nombre2">
     </div>
 
-    <script src="script.js"></script>
+    <button onclick="calculadora()">Calcular ❤️</button>
+    <button onclick="toggleAudio()">🎵</button>
+
+    <div id="result"></div>
+</div>
+
+<button id="btnAudio" onclick="toggleAudio()">🔊</button>
+
+
+<audio id="lobby1" loop src="/assets/music/music loby/Aeris - Galaxy in Your Eyes (freetouse.com).mp3"></audio>
+<audio id="lobby2" loop src="/assets/music/music loby/Epic Spectrum - Sky Clearing (freetouse.com).mp3"></audio>
+<audio id="lobby3" loop src="/assets/music/music loby/Lukrembo - Together (freetouse.com).mp3"></audio>
+<audio id="lobby4" loop src="/assets/music/music loby/Moavii - Silhouette (freetouse.com).mp3"></audio>
+<audio id="lobby5" loop src="/assets/music/music loby/Pufino - Loving (freetouse.com).mp3"></audio>
+
+<audio id="amorAlto" src="/assets/enamorados.mp3"></audio>
+<audio id="amorMedio" src="/assets/casi algo.mp3"></audio>
+<audio id="amorBajo" src="/assets/malo.mp3"></audio>
+
+<div id="modal" class="modal">
+    <div class="modal-content">
+        <h2 id="mensaje"></h2>
+        <button onclick="cerrarModal()">Cerrar 💕</button>
+    </div>
+</div>
+
+<script src="script.js"></script>
 </body>
 </html>

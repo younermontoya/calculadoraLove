@@ -1,82 +1,178 @@
 * {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-    font-family: Arial, sans-serif;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
 }
 
 body {
-    background: linear-gradient(135deg, #ff4ecd, #7a00ff);
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-image: url("https://cdn.pixabay.com/photo/2023/07/11/18/04/ai-generated-8121083_1280.jpg");
-    background-repeat: no-repeat;
-    animation: moverFondo 5s ease infinite alternate;
+  background: linear-gradient(135deg, #ff4ecd, #7a00ff);
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-image: url("https://cdn.pixabay.com/photo/2023/07/11/18/04/ai-generated-8121083_1280.jpg");
+  background-repeat: no-repeat;
+  animation: moverFondo 5s ease infinite alternate;
+  background-size: cover;
 }
 
 .container {
-    background: rgba(255, 255, 255, 0.2); 
-    backdrop-filter: blur(2px);      
-    padding: 2rem;
-    border-radius: 15px;
-    text-align: center;
-    width: 320px;
-    box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(2px);
+  padding: 2rem;
+  border-radius: 15px;
+  text-align: center;
+  width: 320px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
 }
 
 h1 {
-    color: #ff1493;
-    margin-bottom: 20px;
+  color: #ff1493;
+  margin-bottom: 20px;
 }
 
 .inputs {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    margin-bottom: 15px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 15px;
 }
 
 input {
-    padding: 10px;
-    border-radius: 8px;
-    border: 1px solid #ccc;
-    outline: none;
-    transition: 0.3s;
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  outline: none;
+  transition: 0.3s;
 }
 
 input:focus {
-    border-color: #ff1493;
-    box-shadow: 0 0 5px rgba(255,20,147,0.5);
+  border-color: #ff1493;
+  box-shadow: 0 0 5px rgba(255, 20, 147, 0.5);
 }
 
 button {
-    background: #ff1493;
-    color: white;
-    border: none;
-    padding: 10px;
-    border-radius: 8px;
-    cursor: pointer;
-    transition: 0.3s;
+  background: #ff1493;
+  color: white;
+  border: none;
+  padding: 10px;
+  margin-top: 15px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.3s;
 }
 
 button:hover {
-    background: #c7007a;
+  background: #c7007a;
 }
 
 #result {
-    margin-top: 15px;
-    font-size: 20px;
-    font-weight: bold;
-    color: #000000;
+  margin-top: 15px;
+  font-size: 20px;
+  font-weight: bold;
+  color: #000000;
+}
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  background: rgba(0, 0, 0, 0.6);
+}
+
+.modal-content {
+  background: white;
+  padding: 20px;
+  border-radius: 15px;
+  text-align: center;
+  animation: zoom 0.3s ease;
+}
+
+.heart {
+  position: fixed;
+  bottom: 0;
+  width: 20px;
+  height: 20px;
+  background: red;
+  transform: rotate(45deg);
+  animation: subir linear forwards;
+}
+
+.heart::before,
+.heart::after {
+  content: "";
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  background: red;
+  border-radius: 50%;
+}
+
+.heart::before {
+  top: -10px;
+  left: 0;
+}
+.heart::after {
+  left: -10px;
+  top: 0;
+}
+
+#btnAudio {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  background: #ff1493;
+  border: none;
+  padding: 12px;
+  border-radius: 50%;
+  font-size: 18px;
+  cursor: pointer;
+  transition: 0.3s;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+#btnAudio:hover {
+  transform: scale(1.1);
+}
+
+#btnAudio.activo {
+  background: #00ffcc;
+  color: black;
+}
+
+@keyframes subir {
+  to {
+    transform: translateY(-100vh) rotate(45deg);
+    opacity: 0;
+  }
+}
+
+@keyframes zoom {
+  from {
+    transform: scale(0.5);
+  }
+  to {
+    transform: scale(1);
+  }
 }
 
 @keyframes moverFondo {
-    from {
-        background-position: right;
-    }
-    to {
-        background-position: left;
-    }
+  from {
+    background-position: right;
+  }
+  to {
+    background-position: left;
+  }
+}
+
+@media (max-with: 575px) {
+  body {
+    width: 100%;
+    height: 100%;
+  }
 }
